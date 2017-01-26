@@ -12,8 +12,16 @@ import CoreMotion
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
-    var starfield:SKEmitterNode!
-    var player:SKSpriteNode!
+    
+    ///Buttons
+    var directionOneButton: SKSpriteNode?
+    var directionTwoButton: SKSpriteNode?
+    var canonFireButton: SKSpriteNode?
+    
+    
+    var background:SKEmitterNode!
+    var player: SKSpriteNode!
+    
     
     var scoreLabel:SKLabelNode!
     var score:Int = 0 {
@@ -39,20 +47,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         loadHealth()
         
-        starfield = SKEmitterNode(fileNamed: "Background")
-        starfield.position = CGPoint(x: 0, y: 0)
-        starfield.advanceSimulationTime(10)
-        self.addChild(starfield)
+        background = SKEmitterNode(fileNamed: "Background")
+        background.position = CGPoint(x: 0, y: 0)
+        background.advanceSimulationTime(10)
+        self.addChild(background)
         
-        starfield.zPosition = -1
+        
+        
+        
+        background.zPosition = -1
         
         player = SKSpriteNode(imageNamed: "anti_body")
         
         
         player.position = CGPoint(x: self.frame.size.width / 4, y: player.size.height / 2 + 50)
         player.size = CGSize(width: 80, height: 80)
-        
         self.addChild(player)
+        
+        
+        
+        
         
         self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         self.physicsWorld.contactDelegate = self
@@ -73,9 +87,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         
-        gameTimer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(addAlien), userInfo: nil, repeats: true)
+        gameTimer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(addEnemy), userInfo: nil, repeats: true)
         
+        guard (self.childNode(withName: "directionOneButton") as? SKSpriteNode) != nil else {return}
+        guard (self.childNode(withName: "directionTwoButton") as? SKSpriteNode) != nil else {return}
+        guard (self.childNode(withName: "canonFireButton") as? SKSpriteNode) != nil else {return}
         
+        /*
         motionManger.accelerometerUpdateInterval = 0.2
         motionManger.startAccelerometerUpdates(to: OperationQueue.current!) { (data:CMAccelerometerData?, error:Error?) in
             if let accelerometerData = data {
@@ -83,7 +101,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.xAcceleration = CGFloat(acceleration.x) * 0.75 + self.xAcceleration * 0.25
             }
         }
-        
+        */
         
         
     }
@@ -104,7 +122,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     
-    func addAlien () {
+    func addEnemy () {
         possibleAliens = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: possibleAliens) as! [String]
         
         let alien = SKSpriteNode(imageNamed: possibleAliens[0])
