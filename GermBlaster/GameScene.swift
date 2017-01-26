@@ -197,11 +197,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first
         
+        let moveLeftAction = SKAction.moveBy(x: 50, y: 0, duration: 0.1)
+        let moveRightAction = SKAction.moveBy(x: -50, y: 0, duration: 0.1)
+
+        
         if let location = touch?.location(in: self) {
             if directionOneButton.contains(location) {
                 print("direction ONE Tapped")
+                
+                player.run(moveRightAction)
             } else if directionTwoButton.contains(location) {
                 print("direction TWO Tapped")
+                player.run(moveLeftAction)
             } else if canonFireButton.contains(location) {
                 print("FIRE!!!!")
                 fireLaser()
