@@ -14,9 +14,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     ///Buttons
-    var directionOneButton: SKSpriteNode?
-    var directionTwoButton: SKSpriteNode?
-    var canonFireButton: SKSpriteNode?
+    var directionOneButton: SKSpriteNode!
+    var directionTwoButton: SKSpriteNode!
+    var canonFireButton: SKSpriteNode!
+    
     
     
     var background:SKEmitterNode!
@@ -35,7 +36,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var possibleAliens = ["bacteria1", "bacteria2", "bacteria3", "bacteria4"]
     
     let alienCategory:UInt32 = 0x1 << 1
-    let photonTorpedoCategory:UInt32 = 0x1 << 0
+    let laserCategory:UInt32 = 0x1 << 0
     
     
     let motionManger = CMMotionManager()
@@ -89,9 +90,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         gameTimer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(addEnemy), userInfo: nil, repeats: true)
         
-        guard (self.childNode(withName: "directionOneButton") as? SKSpriteNode) != nil else {return}
-        guard (self.childNode(withName: "directionTwoButton") as? SKSpriteNode) != nil else {return}
-        guard (self.childNode(withName: "canonFireButton") as? SKSpriteNode) != nil else {return}
+        /* guard let directionOneButton = directionOneButton,
+            let directionTwoButton = directionTwoButton,
+            let canonFireButton = canonFireButton else {return}
+ */
+        directionOneButton = SKSpriteNode(color: .red, size: CGSize(width: 100, height: 100))
+        directionOneButton.position = CGPoint(x: self.frame.minX + 100, y: self.frame.minY + 100)
+        
+        directionTwoButton = SKSpriteNode(color: .red, size: CGSize(width: 100, height: 100))
+        directionTwoButton.position = CGPoint(x: self.frame.maxX - 100, y: self.frame.minY + 100)
+        
+        canonFireButton = SKSpriteNode(color: .red, size: CGSize(width: 100, height: 100))
+        canonFireButton.position = CGPoint(x: self.frame.maxX - 100, y: self.frame.minY + 250)
+
+        
+        
+        self.addChild(directionOneButton)
+        self.addChild(directionTwoButton)
+        self.addChild(canonFireButton)
+        
+        
+        
         
         /*
         motionManger.accelerometerUpdateInterval = 0.2
@@ -137,7 +156,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         alien.physicsBody?.isDynamic = true
         
         alien.physicsBody?.categoryBitMask = alienCategory
-        alien.physicsBody?.contactTestBitMask = photonTorpedoCategory
+        alien.physicsBody?.contactTestBitMask = laserCategory
         alien.physicsBody?.collisionBitMask = 0
         
         self.addChild(alien)
@@ -176,27 +195,43 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        fireTorpedo()
+        let touch = touches.first
+        
+        if let location = touch?.location(in: self) {
+            if directionOneButton.contains(location) {
+                print("direction ONE Tapped")
+            } else if directionTwoButton.contains(location) {
+                print("direction TWO Tapped")
+            } else if canonFireButton.contains(location) {
+                print("FIRE!!!!")
+                fireLaser()
+            }
+        }
+    }
+ 
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
     }
     
     
-    func fireTorpedo() {
+    func fireLaser() {
         self.run(SKAction.playSoundFileNamed("fire.mp3", waitForCompletion: false))
         
-        let torpedoNode = SKSpriteNode(imageNamed: "ammo")
-        torpedoNode.size = CGSize(width: 40, height: 50)
-        torpedoNode.position = player.position
-        torpedoNode.position.y += 5
+        let laserNode = SKSpriteNode(imageNamed: "ammo")
+        laserNode.size = CGSize(width: 40, height: 50)
+        laserNode.position = player.position
+        laserNode.position.y += 5
         
-        torpedoNode.physicsBody = SKPhysicsBody(circleOfRadius: torpedoNode.size.width / 2)
-        torpedoNode.physicsBody?.isDynamic = true
+        laserNode.physicsBody = SKPhysicsBody(circleOfRadius: laserNode.size.width / 2)
+        laserNode.physicsBody?.isDynamic = true
         
-        torpedoNode.physicsBody?.categoryBitMask = photonTorpedoCategory
-        torpedoNode.physicsBody?.contactTestBitMask = alienCategory
-        torpedoNode.physicsBody?.collisionBitMask = 0
-        torpedoNode.physicsBody?.usesPreciseCollisionDetection = true
+        laserNode.physicsBody?.categoryBitMask = laserCategory
+        laserNode.physicsBody?.contactTestBitMask = alienCategory
+        laserNode.physicsBody?.collisionBitMask = 0
+        laserNode.physicsBody?.usesPreciseCollisionDetection = true
         
-        self.addChild(torpedoNode)
+        self.addChild(laserNode)
         
         let animationDuration:TimeInterval = 0.3
         
@@ -206,7 +241,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         actionArray.append(SKAction.move(to: CGPoint(x: player.position.x, y: self.frame.size.height + 10), duration: animationDuration))
         actionArray.append(SKAction.removeFromParent())
         
-        torpedoNode.run(SKAction.sequence(actionArray))
+        laserNode.run(SKAction.sequence(actionArray))
         
         
         
@@ -225,7 +260,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             secondBody = contact.bodyA
         }
         
-        if (firstBody.categoryBitMask & photonTorpedoCategory) != 0 && (secondBody.categoryBitMask & alienCategory) != 0 {
+        if (firstBody.categoryBitMask & laserCategory) != 0 && (secondBody.categoryBitMask & alienCategory) != 0 {
            torpedoDidCollideWithAlien(torpedoNode: firstBody.node as! SKSpriteNode, alienNode: secondBody.node as! SKSpriteNode)
         }
         
