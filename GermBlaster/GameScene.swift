@@ -33,9 +33,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var gameTimer:Timer!
     
-    var possibleAliens = ["bacteria1", "bacteria2", "bacteria3", "bacteria4"]
+    var possibleGerms = ["bacteria1", "bacteria2", "bacteria3", "bacteria4"]
     
-    let alienCategory:UInt32 = 0x1 << 1
+    let germCategory:UInt32 = 0x1 << 1
     let laserCategory:UInt32 = 0x1 << 0
     
     
@@ -52,16 +52,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         background.position = CGPoint(x: 0, y: 0)
         background.advanceSimulationTime(10)
         self.addChild(background)
-        
-        
-        
-        
         background.zPosition = -1
         
         player = SKSpriteNode(imageNamed: "anti_body")
+        //player.position = CGPoint(x: self.frame.size.width / 4, y: player.size.height / 2 + 50)
         
+        player.position = CGPoint(x: self.frame.midX, y: self.frame.minY + 120)
         
-        player.position = CGPoint(x: self.frame.size.width / 4, y: player.size.height / 2 + 50)
         player.size = CGSize(width: 80, height: 80)
         self.addChild(player)
         
@@ -73,7 +70,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.contactDelegate = self
         
         scoreLabel = SKLabelNode(text: "0")
-        scoreLabel.position = CGPoint(x: 45, y: self.frame.size.height - 120)
+        scoreLabel.position = CGPoint(x: 150, y: self.frame.size.height - 120)
         scoreLabel.fontName = "GOptima-ExtraBlack"
         scoreLabel.fontSize = 65
         scoreLabel.fontColor = UIColor.white
@@ -81,14 +78,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.addChild(scoreLabel)
         
-        var timeInterval = 4.0
+        var timeInterval = 8.0
         
         if UserDefaults.standard.bool(forKey: "difficult") {
-            timeInterval = 2.0
+            timeInterval = 4.0
         }
         
         
-        gameTimer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(addEnemy), userInfo: nil, repeats: true)
+        gameTimer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(addGerm), userInfo: nil, repeats: true)
         
         /* guard let directionOneButton = directionOneButton,
             let directionTwoButton = directionTwoButton,
@@ -141,21 +138,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     
-    func addEnemy () {
-        possibleAliens = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: possibleAliens) as! [String]
+    func addGerm () {
         
-        let alien = SKSpriteNode(imageNamed: possibleAliens[0])
+        //let randomAlienPosition = CGFloat(arc4random(self.frame.maxX - 400))
+        possibleGerms = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: possibleGerms) as! [String]
         
-        let randomAlienPosition = GKRandomDistribution(lowestValue: 0, highestValue: 414)
+        let alien = SKSpriteNode(imageNamed: possibleGerms[0])
+        
+        let randomAlienPosition = GKRandomDistribution(lowestValue: Int(self.frame.minX - 200), highestValue: Int(self.frame.maxX - 200))
         let position = CGFloat(randomAlienPosition.nextInt())
         
-        alien.position = CGPoint(x: position, y: self.frame.size.height + alien.size.height)
+       
+        alien.position = CGPoint(x: position, y: self.frame.maxY + alien.size.height)
         alien.size = CGSize(width: 80, height: 80)
         
         alien.physicsBody = SKPhysicsBody(rectangleOf: alien.size)
         alien.physicsBody?.isDynamic = true
         
-        alien.physicsBody?.categoryBitMask = alienCategory
+        alien.physicsBody?.categoryBitMask = germCategory
         alien.physicsBody?.contactTestBitMask = laserCategory
         alien.physicsBody?.collisionBitMask = 0
         
@@ -234,7 +234,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         laserNode.physicsBody?.isDynamic = true
         
         laserNode.physicsBody?.categoryBitMask = laserCategory
-        laserNode.physicsBody?.contactTestBitMask = alienCategory
+        laserNode.physicsBody?.contactTestBitMask = germCategory
         laserNode.physicsBody?.collisionBitMask = 0
         laserNode.physicsBody?.usesPreciseCollisionDetection = true
         
@@ -267,14 +267,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             secondBody = contact.bodyA
         }
         
-        if (firstBody.categoryBitMask & laserCategory) != 0 && (secondBody.categoryBitMask & alienCategory) != 0 {
-           torpedoDidCollideWithAlien(torpedoNode: firstBody.node as! SKSpriteNode, alienNode: secondBody.node as! SKSpriteNode)
+        if (firstBody.categoryBitMask & laserCategory) != 0 && (secondBody.categoryBitMask & germCategory) != 0 {
+           laserDidCollideWithGerm(laserNode: firstBody.node as! SKSpriteNode, alienNode: secondBody.node as! SKSpriteNode)
         }
         
     }
     
     
-    func torpedoDidCollideWithAlien (torpedoNode:SKSpriteNode, alienNode:SKSpriteNode) {
+    func laserDidCollideWithGerm (laserNode:SKSpriteNode, alienNode:SKSpriteNode) {
     
         let explosion = SKEmitterNode(fileNamed: "Collide")!
         explosion.position = alienNode.position
@@ -282,7 +282,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.run(SKAction.playSoundFileNamed("explode.mp3", waitForCompletion: false))
         
-        torpedoNode.removeFromParent()
+        laserNode.removeFromParent()
         alienNode.removeFromParent()
         
         
