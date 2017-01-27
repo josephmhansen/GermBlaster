@@ -65,8 +65,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
         
-        
-        self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
+        ///Gravity
+        self.physicsWorld.gravity = CGVector(dx: 0, dy: 5)
         self.physicsWorld.contactDelegate = self
         
         scoreLabel = SKLabelNode(text: "0")
@@ -145,7 +145,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         let alien = SKSpriteNode(imageNamed: possibleGerms[0])
         
-        let randomAlienPosition = GKRandomDistribution(lowestValue: Int(self.frame.minX - 200), highestValue: Int(self.frame.maxX - 200))
+        let randomAlienPosition = GKRandomDistribution(lowestValue: Int(self.frame.minX + 270), highestValue: Int(self.frame.maxX - 270))
         let position = CGFloat(randomAlienPosition.nextInt())
         
        
@@ -161,7 +161,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.addChild(alien)
         
-        let animationDuration:TimeInterval = 6
+        let animationDuration:TimeInterval = 10
         
         var actionArray = [SKAction]()
         
@@ -262,7 +262,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
             firstBody = contact.bodyA
             secondBody = contact.bodyB
-        }else{
+        } else {
             firstBody = contact.bodyB
             secondBody = contact.bodyA
         }
