@@ -49,7 +49,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         loadHealth()
         
         background = SKEmitterNode(fileNamed: "Background")
-        background.position = CGPoint(x: 0, y: 0)
+        background.position = CGPoint(x: self.frame.midX, y: 0)
         background.advanceSimulationTime(10)
         self.addChild(background)
         background.zPosition = -1
@@ -59,7 +59,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         player.position = CGPoint(x: self.frame.midX, y: self.frame.minY + 120)
         
-        player.size = CGSize(width: 80, height: 80)
+        player.size = CGSize(width: 135, height: 135)
         self.addChild(player)
         
         
@@ -143,30 +143,30 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //let randomAlienPosition = CGFloat(arc4random(self.frame.maxX - 400))
         possibleGerms = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: possibleGerms) as! [String]
         
-        let alien = SKSpriteNode(imageNamed: possibleGerms[0])
+        let germ = SKSpriteNode(imageNamed: possibleGerms[0])
         
-        let randomAlienPosition = GKRandomDistribution(lowestValue: Int(self.frame.minX + 270), highestValue: Int(self.frame.maxX - 270))
-        let position = CGFloat(randomAlienPosition.nextInt())
+        let randomGermPosition = GKRandomDistribution(lowestValue: Int(self.frame.minX + 270), highestValue: Int(self.frame.maxX - 270))
+        let position = CGFloat(randomGermPosition.nextInt())
         
        
-        alien.position = CGPoint(x: position, y: self.frame.maxY + alien.size.height)
-        alien.size = CGSize(width: 80, height: 80)
+        germ.position = CGPoint(x: position, y: self.frame.maxY + germ.size.height)
+        germ.size = CGSize(width: 110, height: 110)
         
-        alien.physicsBody = SKPhysicsBody(rectangleOf: alien.size)
-        alien.physicsBody?.isDynamic = true
+        germ.physicsBody = SKPhysicsBody(rectangleOf: germ.size)
+        germ.physicsBody?.isDynamic = true
         
-        alien.physicsBody?.categoryBitMask = germCategory
-        alien.physicsBody?.contactTestBitMask = laserCategory
-        alien.physicsBody?.collisionBitMask = 0
+        germ.physicsBody?.categoryBitMask = germCategory
+        germ.physicsBody?.contactTestBitMask = laserCategory
+        germ.physicsBody?.collisionBitMask = 0
         
-        self.addChild(alien)
+        self.addChild(germ)
         
-        let animationDuration:TimeInterval = 10
+        let animationDuration:TimeInterval = 18
         
         var actionArray = [SKAction]()
         
         
-        actionArray.append(SKAction.move(to: CGPoint(x: position, y: -alien.size.height), duration: animationDuration))
+        actionArray.append(SKAction.move(to: CGPoint(x: position, y: -germ.size.height), duration: animationDuration))
         
         
         actionArray.append(SKAction.run {
@@ -188,7 +188,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         })
         actionArray.append(SKAction.removeFromParent())
         
-        alien.run(SKAction.sequence(actionArray))
+        germ.run(SKAction.sequence(actionArray))
         
     
     }
@@ -197,8 +197,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first
         
-        let moveLeftAction = SKAction.moveBy(x: 50, y: 0, duration: 0.1)
-        let moveRightAction = SKAction.moveBy(x: -50, y: 0, duration: 0.1)
+        let moveLeftAction = SKAction.moveBy(x: 80, y: 0, duration: 0.1)
+        let moveRightAction = SKAction.moveBy(x: -80, y: 0, duration: 0.1)
 
         
         if let location = touch?.location(in: self) {
@@ -286,7 +286,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         alienNode.removeFromParent()
         
         
-        self.run(SKAction.wait(forDuration: 2)) { 
+        self.run(SKAction.wait(forDuration: 1)) {
             explosion.removeFromParent()
         }
         
@@ -306,10 +306,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
     }
-    
-    
-    
-    
     
     
     override func update(_ currentTime: TimeInterval) {
