@@ -16,34 +16,22 @@ class MenuScene: SKScene {
     var modeLabelNode: SKLabelNode?
     
     
-    
-    
-    
     override func didMove(to view: SKView) {
-        
+        //adds animated background to view
         guard let background = self.childNode(withName: "background") as? SKEmitterNode else {return}
         background.advanceSimulationTime(7)
-        
+        //adds buttons
         guard (self.childNode(withName: "newGameButton") as? SKSpriteNode) != nil else {return}
         guard (self.childNode(withName: "gameModeButton") as? SKSpriteNode) != nil else {return}
         guard let modeLabelNode = self.childNode(withName: "modeLabel") as? SKLabelNode else {return}
         
-        // newGameButtonNode.texture = SKTexture(imageNamed: "NewGame")
-        // gameModeButtonNode.texture = SKTexture(imageNamed: "MODE")
-        
-        
-        
-       
-        //FIXXX THIS
-        
+        //saves game mode selcted, normal/difficult
         let userDefaults = UserDefaults.standard
         if userDefaults.bool(forKey: "difficult")  {
             modeLabelNode.text = "Difficult"
         } else {
             modeLabelNode.text = "Normal"
         }
-        
-        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

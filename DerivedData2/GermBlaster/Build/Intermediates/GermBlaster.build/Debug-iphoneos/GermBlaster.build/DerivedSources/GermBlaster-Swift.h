@@ -149,7 +149,7 @@ SWIFT_CLASS("_TtC11GermBlaster13GameOverScene")
 @interface GameOverScene : SKScene
 @property (nonatomic) NSInteger score;
 @property (nonatomic, strong) SKLabelNode * _Null_unspecified scoreLabel;
-@property (nonatomic, strong) SKSpriteNode * _Null_unspecified newGameButtonNode;
+@property (nonatomic, strong) SKSpriteNode * _Null_unspecified mainMenuButtonNode;
 - (void)didMoveToView:(SKView * _Nonnull)view;
 - (void)touchesBegan:(NSSet<UITouch *> * _Nonnull)touches withEvent:(UIEvent * _Nullable)event;
 - (nonnull instancetype)initWithSize:(CGSize)size OBJC_DESIGNATED_INITIALIZER;

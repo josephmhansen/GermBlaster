@@ -10,17 +10,19 @@ import SpriteKit
 
 class GameOverScene: SKScene {
     
+    
     var score: Int = 0
     
     var scoreLabel:SKLabelNode!
-    var newGameButtonNode: SKSpriteNode!
+    var mainMenuButtonNode: SKSpriteNode!
     
     override func didMove(to view: SKView) {
+        
         scoreLabel = self.childNode(withName: "scoreLabel") as! SKLabelNode
         scoreLabel.text = "\(score)"
         
-        newGameButtonNode = self.childNode(withName: "mainMenuButton") as! SKSpriteNode
-        newGameButtonNode.texture = SKTexture(imageNamed: "MainMenuButton")
+        mainMenuButtonNode = self.childNode(withName: "mainMenuButton") as! SKSpriteNode
+        mainMenuButtonNode.texture = SKTexture(imageNamed: "MainMenuButton")
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -30,9 +32,10 @@ class GameOverScene: SKScene {
             let node = self.nodes(at: location)
             
             if node[0].name == "mainMenuButton" {
+                //Segue to MainMenu
                 let transition = SKTransition.flipVertical(withDuration: 0.8)
                 let mainMenuScene = SKScene(fileNamed: "MenuScene") as! MenuScene
-                //let mainMenuScene = MenuScene(size: self.size)
+                
                 self.view!.presentScene(mainMenuScene, transition: transition)
             }
         }

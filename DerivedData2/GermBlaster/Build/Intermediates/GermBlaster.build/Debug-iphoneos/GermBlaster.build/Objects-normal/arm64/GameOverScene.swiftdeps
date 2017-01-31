@@ -6,28 +6,28 @@ provides-nominal:
 provides-member:
 - ["C11GermBlaster13GameOverScene", ""]
 provides-dynamic-lookup:
-- "newGameButtonNode"
+- "score"
 - "scoreLabel"
 - "touchesBegan"
-- "score"
 - "didMove"
+- "mainMenuButtonNode"
 depends-top-level:
-- "AssignmentPrecedence"
-- !private "=="
-- "CastingPrecedence"
-- "SKScene"
-- "SKLabelNode"
-- "Set"
-- "UITouch"
-- !private "SKTransition"
-- !private "MenuScene"
-- "UIEvent"
-- "SKView"
-- "SKSpriteNode"
 - "Int"
+- "SKLabelNode"
+- !private "MenuScene"
 - !private "StringLiteralType"
 - "GameOverScene"
+- "SKView"
+- "UITouch"
+- "SKSpriteNode"
 - !private "SKTexture"
+- "SKScene"
+- "Set"
+- !private "SKTransition"
+- "CastingPrecedence"
+- "UIEvent"
+- "AssignmentPrecedence"
+- !private "=="
 depends-member:
 - !private ["Ps9AnyObject", "SKScene"]
 - !private ["Ps9AnyObject", "SKTexture"]
@@ -37,8 +37,8 @@ depends-member:
 - !private ["Ps9AnyObject", "flipVertical"]
 - !private ["Ps9AnyObject", "init"]
 - !private ["Ps9AnyObject", "location"]
+- ["Ps9AnyObject", "mainMenuButtonNode"]
 - !private ["Ps9AnyObject", "name"]
-- ["Ps9AnyObject", "newGameButtonNode"]
 - !private ["Ps9AnyObject", "nodes"]
 - !private ["Ps9AnyObject", "presentScene"]
 - ["Ps9AnyObject", "score"]
@@ -95,8 +95,8 @@ depends-member:
 - !private ["Ps7CVarArg", "flipVertical"]
 - !private ["Ps7CVarArg", "init"]
 - !private ["Ps7CVarArg", "location"]
+- ["Ps7CVarArg", "mainMenuButtonNode"]
 - !private ["Ps7CVarArg", "name"]
-- ["Ps7CVarArg", "newGameButtonNode"]
 - !private ["Ps7CVarArg", "nodes"]
 - !private ["Ps7CVarArg", "presentScene"]
 - ["Ps7CVarArg", "score"]
@@ -132,8 +132,8 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "flipVertical"]
 - !private ["Ps28CustomDebugStringConvertible", "init"]
 - !private ["Ps28CustomDebugStringConvertible", "location"]
+- ["Ps28CustomDebugStringConvertible", "mainMenuButtonNode"]
 - !private ["Ps28CustomDebugStringConvertible", "name"]
-- ["Ps28CustomDebugStringConvertible", "newGameButtonNode"]
 - !private ["Ps28CustomDebugStringConvertible", "nodes"]
 - !private ["Ps28CustomDebugStringConvertible", "presentScene"]
 - ["Ps28CustomDebugStringConvertible", "score"]
@@ -177,8 +177,8 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "flipVertical"]
 - !private ["Ps23CustomStringConvertible", "init"]
 - !private ["Ps23CustomStringConvertible", "location"]
+- ["Ps23CustomStringConvertible", "mainMenuButtonNode"]
 - !private ["Ps23CustomStringConvertible", "name"]
-- ["Ps23CustomStringConvertible", "newGameButtonNode"]
 - !private ["Ps23CustomStringConvertible", "nodes"]
 - !private ["Ps23CustomStringConvertible", "presentScene"]
 - ["Ps23CustomStringConvertible", "score"]
@@ -214,8 +214,8 @@ depends-member:
 - !private ["Ps9Equatable", "flipVertical"]
 - !private ["Ps9Equatable", "init"]
 - !private ["Ps9Equatable", "location"]
+- ["Ps9Equatable", "mainMenuButtonNode"]
 - !private ["Ps9Equatable", "name"]
-- ["Ps9Equatable", "newGameButtonNode"]
 - !private ["Ps9Equatable", "nodes"]
 - !private ["Ps9Equatable", "presentScene"]
 - ["Ps9Equatable", "score"]
@@ -245,7 +245,7 @@ depends-member:
 - !private ["PSo19GKSceneRootNodeType", "childNode"]
 - ["PSo19GKSceneRootNodeType", "didMove"]
 - !private ["PSo19GKSceneRootNodeType", "init"]
-- ["PSo19GKSceneRootNodeType", "newGameButtonNode"]
+- ["PSo19GKSceneRootNodeType", "mainMenuButtonNode"]
 - !private ["PSo19GKSceneRootNodeType", "nodes"]
 - ["PSo19GKSceneRootNodeType", "score"]
 - ["PSo19GKSceneRootNodeType", "scoreLabel"]
@@ -267,7 +267,7 @@ depends-member:
 - ["C11GermBlaster13GameOverScene", "deinit"]
 - ["C11GermBlaster13GameOverScene", "didMove"]
 - ["C11GermBlaster13GameOverScene", "init"]
-- ["C11GermBlaster13GameOverScene", "newGameButtonNode"]
+- ["C11GermBlaster13GameOverScene", "mainMenuButtonNode"]
 - !private ["C11GermBlaster13GameOverScene", "nodes"]
 - ["C11GermBlaster13GameOverScene", "score"]
 - ["C11GermBlaster13GameOverScene", "scoreLabel"]
@@ -287,8 +287,8 @@ depends-member:
 - !private ["Ps8Hashable", "flipVertical"]
 - !private ["Ps8Hashable", "init"]
 - !private ["Ps8Hashable", "location"]
+- ["Ps8Hashable", "mainMenuButtonNode"]
 - !private ["Ps8Hashable", "name"]
-- ["Ps8Hashable", "newGameButtonNode"]
 - !private ["Ps8Hashable", "nodes"]
 - !private ["Ps8Hashable", "presentScene"]
 - ["Ps8Hashable", "score"]
@@ -351,8 +351,8 @@ depends-member:
 - !private ["PSo8NSCoding", "childNode"]
 - ["PSo8NSCoding", "didMove"]
 - !private ["PSo8NSCoding", "init"]
+- ["PSo8NSCoding", "mainMenuButtonNode"]
 - !private ["PSo8NSCoding", "name"]
-- ["PSo8NSCoding", "newGameButtonNode"]
 - !private ["PSo8NSCoding", "nodes"]
 - !private ["PSo8NSCoding", "presentScene"]
 - ["PSo8NSCoding", "score"]
@@ -369,8 +369,8 @@ depends-member:
 - ["PSo9NSCopying", "didMove"]
 - !private ["PSo9NSCopying", "flipVertical"]
 - !private ["PSo9NSCopying", "init"]
+- ["PSo9NSCopying", "mainMenuButtonNode"]
 - !private ["PSo9NSCopying", "name"]
-- ["PSo9NSCopying", "newGameButtonNode"]
 - !private ["PSo9NSCopying", "nodes"]
 - ["PSo9NSCopying", "score"]
 - ["PSo9NSCopying", "scoreLabel"]
@@ -396,8 +396,8 @@ depends-member:
 - !private ["CSo8NSObject", "flipVertical"]
 - ["CSo8NSObject", "init"]
 - !private ["CSo8NSObject", "location"]
+- ["CSo8NSObject", "mainMenuButtonNode"]
 - !private ["CSo8NSObject", "name"]
-- ["CSo8NSObject", "newGameButtonNode"]
 - !private ["CSo8NSObject", "nodes"]
 - !private ["CSo8NSObject", "presentScene"]
 - ["CSo8NSObject", "score"]
@@ -414,8 +414,8 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "flipVertical"]
 - !private ["PSo16NSObjectProtocol", "init"]
 - !private ["PSo16NSObjectProtocol", "location"]
+- ["PSo16NSObjectProtocol", "mainMenuButtonNode"]
 - !private ["PSo16NSObjectProtocol", "name"]
-- ["PSo16NSObjectProtocol", "newGameButtonNode"]
 - !private ["PSo16NSObjectProtocol", "nodes"]
 - !private ["PSo16NSObjectProtocol", "presentScene"]
 - ["PSo16NSObjectProtocol", "score"]
@@ -468,7 +468,7 @@ depends-member:
 - !private ["CSo12SKEffectNode", "childNode"]
 - ["CSo12SKEffectNode", "didMove"]
 - ["CSo12SKEffectNode", "init"]
-- ["CSo12SKEffectNode", "newGameButtonNode"]
+- ["CSo12SKEffectNode", "mainMenuButtonNode"]
 - !private ["CSo12SKEffectNode", "nodes"]
 - ["CSo12SKEffectNode", "score"]
 - ["CSo12SKEffectNode", "scoreLabel"]
@@ -491,8 +491,8 @@ depends-member:
 - ["CSo6SKNode", "deinit"]
 - ["CSo6SKNode", "didMove"]
 - ["CSo6SKNode", "init"]
+- ["CSo6SKNode", "mainMenuButtonNode"]
 - !private ["CSo6SKNode", "name"]
-- ["CSo6SKNode", "newGameButtonNode"]
 - !private ["CSo6SKNode", "nodes"]
 - ["CSo6SKNode", "score"]
 - ["CSo6SKNode", "scoreLabel"]
@@ -515,7 +515,7 @@ depends-member:
 - ["CSo7SKScene", "deinit"]
 - ["CSo7SKScene", "didMove"]
 - ["CSo7SKScene", "init"]
-- ["CSo7SKScene", "newGameButtonNode"]
+- ["CSo7SKScene", "mainMenuButtonNode"]
 - !private ["CSo7SKScene", "nodes"]
 - ["CSo7SKScene", "score"]
 - ["CSo7SKScene", "scoreLabel"]
@@ -536,7 +536,7 @@ depends-member:
 - !private ["PSo10SKWarpable", "childNode"]
 - ["PSo10SKWarpable", "didMove"]
 - !private ["PSo10SKWarpable", "init"]
-- ["PSo10SKWarpable", "newGameButtonNode"]
+- ["PSo10SKWarpable", "mainMenuButtonNode"]
 - !private ["PSo10SKWarpable", "nodes"]
 - ["PSo10SKWarpable", "score"]
 - ["PSo10SKWarpable", "scoreLabel"]
@@ -587,8 +587,8 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "childNode"]
 - ["PSo18UIFocusEnvironment", "didMove"]
 - !private ["PSo18UIFocusEnvironment", "init"]
+- ["PSo18UIFocusEnvironment", "mainMenuButtonNode"]
 - !private ["PSo18UIFocusEnvironment", "name"]
-- ["PSo18UIFocusEnvironment", "newGameButtonNode"]
 - !private ["PSo18UIFocusEnvironment", "nodes"]
 - !private ["PSo18UIFocusEnvironment", "presentScene"]
 - ["PSo18UIFocusEnvironment", "score"]
@@ -604,8 +604,8 @@ depends-member:
 - !private ["PSo11UIFocusItem", "childNode"]
 - ["PSo11UIFocusItem", "didMove"]
 - !private ["PSo11UIFocusItem", "init"]
+- ["PSo11UIFocusItem", "mainMenuButtonNode"]
 - !private ["PSo11UIFocusItem", "name"]
-- ["PSo11UIFocusItem", "newGameButtonNode"]
 - !private ["PSo11UIFocusItem", "nodes"]
 - !private ["PSo11UIFocusItem", "presentScene"]
 - ["PSo11UIFocusItem", "score"]
@@ -629,8 +629,8 @@ depends-member:
 - !private ["CSo11UIResponder", "childNode"]
 - ["CSo11UIResponder", "didMove"]
 - ["CSo11UIResponder", "init"]
+- ["CSo11UIResponder", "mainMenuButtonNode"]
 - !private ["CSo11UIResponder", "name"]
-- ["CSo11UIResponder", "newGameButtonNode"]
 - !private ["CSo11UIResponder", "nodes"]
 - !private ["CSo11UIResponder", "presentScene"]
 - ["CSo11UIResponder", "score"]
@@ -645,8 +645,8 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "childNode"]
 - ["PSo30UIResponderStandardEditActions", "didMove"]
 - !private ["PSo30UIResponderStandardEditActions", "init"]
+- ["PSo30UIResponderStandardEditActions", "mainMenuButtonNode"]
 - !private ["PSo30UIResponderStandardEditActions", "name"]
-- ["PSo30UIResponderStandardEditActions", "newGameButtonNode"]
 - !private ["PSo30UIResponderStandardEditActions", "nodes"]
 - !private ["PSo30UIResponderStandardEditActions", "presentScene"]
 - ["PSo30UIResponderStandardEditActions", "score"]
@@ -696,8 +696,8 @@ depends-member:
 - !private ["Ps9_Hashable", "flipVertical"]
 - !private ["Ps9_Hashable", "init"]
 - !private ["Ps9_Hashable", "location"]
+- ["Ps9_Hashable", "mainMenuButtonNode"]
 - !private ["Ps9_Hashable", "name"]
-- ["Ps9_Hashable", "newGameButtonNode"]
 - !private ["Ps9_Hashable", "nodes"]
 - !private ["Ps9_Hashable", "presentScene"]
 - ["Ps9_Hashable", "score"]
@@ -870,4 +870,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/simd.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/GLKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/GameplayKit.swiftmodule"
-interface-hash: "0fa8bb8c01f3ea4450d88d3877ee8b67"
+interface-hash: "893bd254f71bc09330ba792c22f214cc"

@@ -93,7 +93,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         gameTimer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(addGerm), userInfo: nil, repeats: true)
         
         
-        //Programatically added buttons for testing, Left, Right, and Laser Functions
+        //Programatically adds buttons for testing, Left, Right, and Laser Functions
         directionOneButton = SKSpriteNode(color: .red, size: CGSize(width: 100, height: 100))
         directionOneButton.position = CGPoint(x: self.frame.minX + 100, y: self.frame.minY + 100)
         
@@ -235,12 +235,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         actionArray.append(SKAction.removeFromParent())
         
         laserNode.run(SKAction.sequence(actionArray))
-        
-        
-        
     }
     
-    
+    //checks for contact between categories of germs and laser. laser is set to destroy germs
     func didBegin(_ contact: SKPhysicsContact) {
         var firstBody:SKPhysicsBody
         var secondBody:SKPhysicsBody
@@ -259,7 +256,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
-    
+    //Checks the germ and laser category to test for collision, if colision occurs animation is called and nodes are removed from memory and view. adds points to score.
     func laserDidCollideWithGerm (laserNode:SKSpriteNode, alienNode:SKSpriteNode) {
         
         let explosion = SKEmitterNode(fileNamed: "Collide")!
