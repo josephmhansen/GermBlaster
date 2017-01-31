@@ -19,46 +19,50 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var canonFireButton: SKSpriteNode!
     
     
-    
+    //Bubble-like animation for background
     var background:SKEmitterNode!
+    //Player
     var player: SKSpriteNode!
     
-    
+    //Score Label in top left corner
     var scoreLabel:SKLabelNode!
+    
     var score:Int = 0 {
         didSet {
             scoreLabel.text = "\(score)"
         }
     }
     
+    //Times the rate that the germs spawn
     var gameTimer:Timer!
-    
+    //Array of Germs
     var possibleGerms = ["bacteria1", "bacteria2", "bacteria3", "bacteria4"]
     
+    //Categories created to allow the germs to be destroyed by the laser
     let germCategory:UInt32 = 0x1 << 1
     let laserCategory:UInt32 = 0x1 << 0
     
-    
-    let motionManger = CMMotionManager()
-    var xAcceleration:CGFloat = 0
-    
+    //stores how many lives remaining user has (indicated by hearts on the top right corner of screen)
     var healthArray: [SKSpriteNode]!
     
+    
+    // This is similar to viewDidLoad
     override func didMove(to view: SKView) {
         
         loadHealth()
         
+        //This creates and adds background emitter to view and sets the z position to be behind everything else
         background = SKEmitterNode(fileNamed: "Background")
         background.position = CGPoint(x: self.frame.midX, y: 0)
         background.advanceSimulationTime(10)
         self.addChild(background)
         background.zPosition = -1
         
+        
+        //links image to playerNode
         player = SKSpriteNode(imageNamed: "anti_body")
-        //player.position = CGPoint(x: self.frame.size.width / 4, y: player.size.height / 2 + 50)
-        
+        //sets default position that player is at when game loads
         player.position = CGPoint(x: self.frame.midX, y: self.frame.minY + 120)
-        
         player.size = CGSize(width: 135, height: 135)
         self.addChild(player)
         
@@ -69,28 +73,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.gravity = CGVector(dx: 0, dy: 5)
         self.physicsWorld.contactDelegate = self
         
+        //Adds score Label
         scoreLabel = SKLabelNode(text: "0")
         scoreLabel.position = CGPoint(x: 150, y: self.frame.size.height - 120)
         scoreLabel.fontName = "GOptima-ExtraBlack"
         scoreLabel.fontSize = 65
         scoreLabel.fontColor = UIColor.white
         score = 0
-        
         self.addChild(scoreLabel)
         
+        // The following allows you to easily modify the spawn rate of germs to adjust difficulty for player,
         var timeInterval = 8.0
         
         if UserDefaults.standard.bool(forKey: "difficult") {
             timeInterval = 4.0
         }
         
-        
+        //calls addGerm Function based on timeInterval selected from menu screen
         gameTimer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(addGerm), userInfo: nil, repeats: true)
         
-        /* guard let directionOneButton = directionOneButton,
-            let directionTwoButton = directionTwoButton,
-            let canonFireButton = canonFireButton else {return}
- */
+        
+        //Programatically added buttons for testing, Left, Right, and Laser Functions
         directionOneButton = SKSpriteNode(color: .red, size: CGSize(width: 100, height: 100))
         directionOneButton.position = CGPoint(x: self.frame.minX + 100, y: self.frame.minY + 100)
         
@@ -99,8 +102,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         canonFireButton = SKSpriteNode(color: .red, size: CGSize(width: 100, height: 100))
         canonFireButton.position = CGPoint(x: self.frame.maxX - 100, y: self.frame.minY + 250)
-
-        
         
         self.addChild(directionOneButton)
         self.addChild(directionTwoButton)
@@ -108,20 +109,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
         
-        
-        /*
-        motionManger.accelerometerUpdateInterval = 0.2
-        motionManger.startAccelerometerUpdates(to: OperationQueue.current!) { (data:CMAccelerometerData?, error:Error?) in
-            if let accelerometerData = data {
-                let acceleration = accelerometerData.acceleration
-                self.xAcceleration = CGFloat(acceleration.x) * 0.75 + self.xAcceleration * 0.25
-            }
-        }
-        */
-        
-        
     }
     
+    //loads health, and tracks remaining lives throughout gameplay
     func loadHealth() {
         healthArray = [SKSpriteNode]()
         
@@ -137,24 +127,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     
-    
+    //Adds germ to display at a random x position, selects random germ image from array
     func addGerm () {
         
-        //let randomAlienPosition = CGFloat(arc4random(self.frame.maxX - 400))
         possibleGerms = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: possibleGerms) as! [String]
         
         let germ = SKSpriteNode(imageNamed: possibleGerms[0])
-        
         let randomGermPosition = GKRandomDistribution(lowestValue: Int(self.frame.minX + 270), highestValue: Int(self.frame.maxX - 270))
+        //allows x axis to be set to random
         let position = CGFloat(randomGermPosition.nextInt())
         
-       
         germ.position = CGPoint(x: position, y: self.frame.maxY + germ.size.height)
         germ.size = CGSize(width: 110, height: 110)
-        
         germ.physicsBody = SKPhysicsBody(rectangleOf: germ.size)
         germ.physicsBody?.isDynamic = true
-        
         germ.physicsBody?.categoryBitMask = germCategory
         germ.physicsBody?.contactTestBitMask = laserCategory
         germ.physicsBody?.collisionBitMask = 0
@@ -190,16 +176,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         germ.run(SKAction.sequence(actionArray))
         
-    
+        
     }
     
-    
+    //allows test buttons to be recognized with touch, will be hidden when bridged with EMG sensors
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first
         
         let moveLeftAction = SKAction.moveBy(x: 80, y: 0, duration: 0.1)
         let moveRightAction = SKAction.moveBy(x: -80, y: 0, duration: 0.1)
-
+        
         
         if let location = touch?.location(in: self) {
             if directionOneButton.contains(location) {
@@ -215,7 +201,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
         }
     }
- 
+    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
@@ -268,14 +254,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         if (firstBody.categoryBitMask & laserCategory) != 0 && (secondBody.categoryBitMask & germCategory) != 0 {
-           laserDidCollideWithGerm(laserNode: firstBody.node as! SKSpriteNode, alienNode: secondBody.node as! SKSpriteNode)
+            laserDidCollideWithGerm(laserNode: firstBody.node as! SKSpriteNode, alienNode: secondBody.node as! SKSpriteNode)
         }
         
     }
     
     
     func laserDidCollideWithGerm (laserNode:SKSpriteNode, alienNode:SKSpriteNode) {
-    
+        
         let explosion = SKEmitterNode(fileNamed: "Collide")!
         explosion.position = alienNode.position
         self.addChild(explosion)
@@ -297,7 +283,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func didSimulatePhysics() {
         
-        player.position.x += xAcceleration * 50
+        //player.position.x += xAcceleration * 50
         
         if player.position.x < -20 {
             player.position = CGPoint(x: self.size.width + 20, y: player.position.y)

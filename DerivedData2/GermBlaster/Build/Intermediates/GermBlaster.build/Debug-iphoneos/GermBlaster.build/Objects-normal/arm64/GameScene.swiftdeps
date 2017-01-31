@@ -6,80 +6,77 @@ provides-nominal:
 provides-member:
 - ["C11GermBlaster9GameScene", ""]
 provides-dynamic-lookup:
-- "update"
-- "canonFireButton"
-- "touchesBegan"
-- "laserCategory"
-- "scoreLabel"
-- "xAcceleration"
-- "touchesEnded"
 - "didMove"
-- "didSimulatePhysics"
-- "possibleGerms"
-- "fireLaser"
-- "directionTwoButton"
+- "canonFireButton"
+- "scoreLabel"
+- "touchesBegan"
+- "touchesEnded"
 - "player"
-- "motionManger"
-- "gameTimer"
-- "germCategory"
+- "possibleGerms"
 - "laserDidCollideWithGerm"
-- "loadHealth"
-- "background"
-- "didBegin"
-- "healthArray"
+- "didSimulatePhysics"
+- "germCategory"
+- "fireLaser"
 - "score"
+- "healthArray"
+- "directionTwoButton"
+- "gameTimer"
 - "addGerm"
+- "loadHealth"
+- "update"
 - "directionOneButton"
+- "didBegin"
+- "laserCategory"
+- "background"
 depends-top-level:
-- "SKPhysicsContactDelegate"
-- "SKEmitterNode"
-- !private "BooleanLiteralType"
-- !private "SKTransition"
-- "SKScene"
-- "TimeInterval"
 - !private "*"
-- !private "..."
-- "GameScene"
-- "Array"
-- "SKSpriteNode"
-- !private "GameOverScene"
-- "<<"
+- "SKScene"
+- !private "GKRandomSource"
 - "StringLiteralType"
-- "SKPhysicsContact"
-- !private "+"
-- "Timer"
-- "CastingPrecedence"
+- "TimeInterval"
+- !private "..."
+- "<<"
 - !private "GKRandomDistribution"
+- !private "BooleanLiteralType"
+- !private "UIColor"
+- "UInt32"
+- !private "CGSize"
+- !private "UnicodeScalarType"
+- "SKView"
+- "SKPhysicsContact"
+- !private "CGFloat"
+- !private "GameOverScene"
+- !private "+="
+- "Array"
+- !private "-"
+- "SKSpriteNode"
+- "Set"
+- !private "!="
+- !private "<"
+- "SKPhysicsContactDelegate"
+- !private "+"
+- !private "SKTransition"
+- !private ">"
+- "SKEmitterNode"
+- !private "&"
+- "GameScene"
+- !private "String"
+- !private "print"
+- "Timer"
+- "SKLabelNode"
+- !private "CGPoint"
+- !private "SKPhysicsBody"
+- !private "CGVector"
+- "UITouch"
 - "Int"
-- "AssignmentPrecedence"
+- !private "SKAction"
+- !private "/"
+- "UIEvent"
+- "CastingPrecedence"
+- !private "&&"
 - !private "UserDefaults"
 - !private "=="
-- !private "CGVector"
-- !private "+="
-- !private "SKAction"
-- "SKLabelNode"
-- !private "&&"
-- "Set"
-- !private "String"
-- !private "UnicodeScalarType"
-- !private "GKRandomSource"
-- "UIEvent"
-- !private "CGPoint"
-- "UITouch"
-- !private "SKPhysicsBody"
-- !private ">"
-- !private "<"
-- "CMMotionManager"
-- !private "print"
-- !private "-"
-- "SKView"
-- "UInt32"
-- !private "/"
-- !private "UIColor"
-- !private "&"
-- !private "CGSize"
-- "CGFloat"
-- !private "!="
+- "AssignmentPrecedence"
 depends-member:
 - !private ["Ps16AbsoluteValuable", "RawValue"]
 - !private ["Ps16AbsoluteValuable", "Stride"]
@@ -88,7 +85,6 @@ depends-member:
 - !private ["Ps9AnyObject", "CGPoint"]
 - !private ["Ps9AnyObject", "CGSize"]
 - !private ["Ps9AnyObject", "CGVector"]
-- ["Ps9AnyObject", "CMMotionManager"]
 - !private ["Ps9AnyObject", "GKRandomDistribution"]
 - !private ["Ps9AnyObject", "GKRandomSource"]
 - !private ["Ps9AnyObject", "Int"]
@@ -140,7 +136,6 @@ depends-member:
 - ["Ps9AnyObject", "laserDidCollideWithGerm"]
 - ["Ps9AnyObject", "loadHealth"]
 - !private ["Ps9AnyObject", "location"]
-- ["Ps9AnyObject", "motionManger"]
 - !private ["Ps9AnyObject", "move"]
 - !private ["Ps9AnyObject", "moveBy"]
 - !private ["Ps9AnyObject", "nextInt"]
@@ -171,7 +166,6 @@ depends-member:
 - !private ["Ps9AnyObject", "view"]
 - !private ["Ps9AnyObject", "wait"]
 - !private ["Ps9AnyObject", "white"]
-- ["Ps9AnyObject", "xAcceleration"]
 - !private ["Ps9AnyObject", "zPosition"]
 - ["Ps9AnyObject", ""]
 - ["Sa", "Element"]
@@ -250,13 +244,10 @@ depends-member:
 - !private ["VSC6CGSize", "width"]
 - ["VSC8CGVector", "deinit"]
 - !private ["VSC8CGVector", "init"]
-- ["CSo15CMMotionManager", "deinit"]
-- ["CSo15CMMotionManager", "init"]
 - !private ["Ps7CVarArg", "CGFloat"]
 - !private ["Ps7CVarArg", "CGPoint"]
 - !private ["Ps7CVarArg", "CGSize"]
 - !private ["Ps7CVarArg", "CGVector"]
-- ["Ps7CVarArg", "CMMotionManager"]
 - ["Ps7CVarArg", "Element"]
 - !private ["Ps7CVarArg", "GKRandomDistribution"]
 - !private ["Ps7CVarArg", "GKRandomSource"]
@@ -321,7 +312,6 @@ depends-member:
 - ["Ps7CVarArg", "laserDidCollideWithGerm"]
 - ["Ps7CVarArg", "loadHealth"]
 - !private ["Ps7CVarArg", "location"]
-- ["Ps7CVarArg", "motionManger"]
 - !private ["Ps7CVarArg", "move"]
 - !private ["Ps7CVarArg", "moveBy"]
 - !private ["Ps7CVarArg", "nextInt"]
@@ -354,7 +344,6 @@ depends-member:
 - !private ["Ps7CVarArg", "view"]
 - !private ["Ps7CVarArg", "wait"]
 - !private ["Ps7CVarArg", "white"]
-- ["Ps7CVarArg", "xAcceleration"]
 - !private ["Ps7CVarArg", "zPosition"]
 - ["Ps7CVarArg", ""]
 - !private ["Vs9Character", "deinit"]
@@ -384,7 +373,6 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "CGPoint"]
 - !private ["Ps28CustomDebugStringConvertible", "CGSize"]
 - !private ["Ps28CustomDebugStringConvertible", "CGVector"]
-- ["Ps28CustomDebugStringConvertible", "CMMotionManager"]
 - ["Ps28CustomDebugStringConvertible", "Element"]
 - !private ["Ps28CustomDebugStringConvertible", "GKRandomDistribution"]
 - !private ["Ps28CustomDebugStringConvertible", "GKRandomSource"]
@@ -452,7 +440,6 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "midX"]
 - !private ["Ps28CustomDebugStringConvertible", "minX"]
 - !private ["Ps28CustomDebugStringConvertible", "minY"]
-- ["Ps28CustomDebugStringConvertible", "motionManger"]
 - !private ["Ps28CustomDebugStringConvertible", "move"]
 - !private ["Ps28CustomDebugStringConvertible", "moveBy"]
 - !private ["Ps28CustomDebugStringConvertible", "nextInt"]
@@ -487,7 +474,6 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "white"]
 - !private ["Ps28CustomDebugStringConvertible", "width"]
 - !private ["Ps28CustomDebugStringConvertible", "x"]
-- ["Ps28CustomDebugStringConvertible", "xAcceleration"]
 - !private ["Ps28CustomDebugStringConvertible", "y"]
 - !private ["Ps28CustomDebugStringConvertible", "zPosition"]
 - ["Ps28CustomDebugStringConvertible", ""]
@@ -542,7 +528,6 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "CGPoint"]
 - !private ["Ps23CustomStringConvertible", "CGSize"]
 - !private ["Ps23CustomStringConvertible", "CGVector"]
-- ["Ps23CustomStringConvertible", "CMMotionManager"]
 - ["Ps23CustomStringConvertible", "Element"]
 - !private ["Ps23CustomStringConvertible", "GKRandomDistribution"]
 - !private ["Ps23CustomStringConvertible", "GKRandomSource"]
@@ -608,7 +593,6 @@ depends-member:
 - ["Ps23CustomStringConvertible", "laserDidCollideWithGerm"]
 - ["Ps23CustomStringConvertible", "loadHealth"]
 - !private ["Ps23CustomStringConvertible", "location"]
-- ["Ps23CustomStringConvertible", "motionManger"]
 - !private ["Ps23CustomStringConvertible", "move"]
 - !private ["Ps23CustomStringConvertible", "moveBy"]
 - !private ["Ps23CustomStringConvertible", "nextInt"]
@@ -641,7 +625,6 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "view"]
 - !private ["Ps23CustomStringConvertible", "wait"]
 - !private ["Ps23CustomStringConvertible", "white"]
-- ["Ps23CustomStringConvertible", "xAcceleration"]
 - !private ["Ps23CustomStringConvertible", "zPosition"]
 - ["Ps23CustomStringConvertible", ""]
 - !private ["Vs27DefaultBidirectionalIndices", "Index"]
@@ -660,7 +643,6 @@ depends-member:
 - !private ["Ps9Equatable", "CGPoint"]
 - !private ["Ps9Equatable", "CGSize"]
 - !private ["Ps9Equatable", "CGVector"]
-- ["Ps9Equatable", "CMMotionManager"]
 - !private ["Ps9Equatable", "GKRandomDistribution"]
 - !private ["Ps9Equatable", "GKRandomSource"]
 - !private ["Ps9Equatable", "Int"]
@@ -725,7 +707,6 @@ depends-member:
 - !private ["Ps9Equatable", "midX"]
 - !private ["Ps9Equatable", "minX"]
 - !private ["Ps9Equatable", "minY"]
-- ["Ps9Equatable", "motionManger"]
 - !private ["Ps9Equatable", "move"]
 - !private ["Ps9Equatable", "moveBy"]
 - !private ["Ps9Equatable", "nextInt"]
@@ -758,7 +739,6 @@ depends-member:
 - !private ["Ps9Equatable", "white"]
 - !private ["Ps9Equatable", "width"]
 - !private ["Ps9Equatable", "x"]
-- ["Ps9Equatable", "xAcceleration"]
 - !private ["Ps9Equatable", "y"]
 - !private ["Ps9Equatable", "zPosition"]
 - ["Ps9Equatable", ""]
@@ -805,7 +785,6 @@ depends-member:
 - !private ["PSo19GKSceneRootNodeType", "CGPoint"]
 - !private ["PSo19GKSceneRootNodeType", "CGSize"]
 - !private ["PSo19GKSceneRootNodeType", "CGVector"]
-- ["PSo19GKSceneRootNodeType", "CMMotionManager"]
 - !private ["PSo19GKSceneRootNodeType", "GKRandomDistribution"]
 - !private ["PSo19GKSceneRootNodeType", "GKRandomSource"]
 - !private ["PSo19GKSceneRootNodeType", "Int"]
@@ -840,7 +819,6 @@ depends-member:
 - ["PSo19GKSceneRootNodeType", "laserCategory"]
 - ["PSo19GKSceneRootNodeType", "laserDidCollideWithGerm"]
 - ["PSo19GKSceneRootNodeType", "loadHealth"]
-- ["PSo19GKSceneRootNodeType", "motionManger"]
 - !private ["PSo19GKSceneRootNodeType", "physicsWorld"]
 - ["PSo19GKSceneRootNodeType", "player"]
 - ["PSo19GKSceneRootNodeType", "possibleGerms"]
@@ -853,15 +831,13 @@ depends-member:
 - ["PSo19GKSceneRootNodeType", "touchesEnded"]
 - ["PSo19GKSceneRootNodeType", "update"]
 - !private ["PSo19GKSceneRootNodeType", "view"]
-- ["PSo19GKSceneRootNodeType", "xAcceleration"]
 - ["PSo19GKSceneRootNodeType", ""]
 - !private ["C11GermBlaster13GameOverScene", "deinit"]
 - !private ["C11GermBlaster13GameOverScene", "score"]
-- ["C11GermBlaster9GameScene", "CGFloat"]
+- !private ["C11GermBlaster9GameScene", "CGFloat"]
 - !private ["C11GermBlaster9GameScene", "CGPoint"]
 - !private ["C11GermBlaster9GameScene", "CGSize"]
 - !private ["C11GermBlaster9GameScene", "CGVector"]
-- ["C11GermBlaster9GameScene", "CMMotionManager"]
 - !private ["C11GermBlaster9GameScene", "GKRandomDistribution"]
 - !private ["C11GermBlaster9GameScene", "GKRandomSource"]
 - !private ["C11GermBlaster9GameScene", "GameOverScene"]
@@ -906,7 +882,6 @@ depends-member:
 - ["C11GermBlaster9GameScene", "laserCategory"]
 - ["C11GermBlaster9GameScene", "laserDidCollideWithGerm"]
 - ["C11GermBlaster9GameScene", "loadHealth"]
-- ["C11GermBlaster9GameScene", "motionManger"]
 - !private ["C11GermBlaster9GameScene", "physicsWorld"]
 - ["C11GermBlaster9GameScene", "player"]
 - ["C11GermBlaster9GameScene", "possibleGerms"]
@@ -919,12 +894,10 @@ depends-member:
 - ["C11GermBlaster9GameScene", "touchesEnded"]
 - ["C11GermBlaster9GameScene", "update"]
 - !private ["C11GermBlaster9GameScene", "view"]
-- ["C11GermBlaster9GameScene", "xAcceleration"]
 - !private ["Ps8Hashable", "CGFloat"]
 - !private ["Ps8Hashable", "CGPoint"]
 - !private ["Ps8Hashable", "CGSize"]
 - !private ["Ps8Hashable", "CGVector"]
-- ["Ps8Hashable", "CMMotionManager"]
 - !private ["Ps8Hashable", "GKRandomDistribution"]
 - !private ["Ps8Hashable", "GKRandomSource"]
 - !private ["Ps8Hashable", "Int"]
@@ -983,7 +956,6 @@ depends-member:
 - ["Ps8Hashable", "laserDidCollideWithGerm"]
 - ["Ps8Hashable", "loadHealth"]
 - !private ["Ps8Hashable", "location"]
-- ["Ps8Hashable", "motionManger"]
 - !private ["Ps8Hashable", "move"]
 - !private ["Ps8Hashable", "moveBy"]
 - !private ["Ps8Hashable", "nextInt"]
@@ -1014,7 +986,6 @@ depends-member:
 - !private ["Ps8Hashable", "view"]
 - !private ["Ps8Hashable", "wait"]
 - !private ["Ps8Hashable", "white"]
-- ["Ps8Hashable", "xAcceleration"]
 - !private ["Ps8Hashable", "zPosition"]
 - ["Ps8Hashable", ""]
 - ["SQ", "deinit"]
@@ -1099,7 +1070,6 @@ depends-member:
 - !private ["PSo8NSCoding", "CGPoint"]
 - !private ["PSo8NSCoding", "CGSize"]
 - !private ["PSo8NSCoding", "CGVector"]
-- ["PSo8NSCoding", "CMMotionManager"]
 - !private ["PSo8NSCoding", "GKRandomDistribution"]
 - !private ["PSo8NSCoding", "GKRandomSource"]
 - !private ["PSo8NSCoding", "Int"]
@@ -1146,7 +1116,6 @@ depends-member:
 - ["PSo8NSCoding", "laserCategory"]
 - ["PSo8NSCoding", "laserDidCollideWithGerm"]
 - ["PSo8NSCoding", "loadHealth"]
-- ["PSo8NSCoding", "motionManger"]
 - !private ["PSo8NSCoding", "move"]
 - !private ["PSo8NSCoding", "moveBy"]
 - !private ["PSo8NSCoding", "node"]
@@ -1174,14 +1143,12 @@ depends-member:
 - !private ["PSo8NSCoding", "view"]
 - !private ["PSo8NSCoding", "wait"]
 - !private ["PSo8NSCoding", "white"]
-- ["PSo8NSCoding", "xAcceleration"]
 - !private ["PSo8NSCoding", "zPosition"]
 - ["PSo8NSCoding", ""]
 - !private ["PSo9NSCopying", "CGFloat"]
 - !private ["PSo9NSCopying", "CGPoint"]
 - !private ["PSo9NSCopying", "CGSize"]
 - !private ["PSo9NSCopying", "CGVector"]
-- ["PSo9NSCopying", "CMMotionManager"]
 - !private ["PSo9NSCopying", "GKRandomDistribution"]
 - !private ["PSo9NSCopying", "GKRandomSource"]
 - !private ["PSo9NSCopying", "Int"]
@@ -1227,7 +1194,6 @@ depends-member:
 - ["PSo9NSCopying", "laserCategory"]
 - ["PSo9NSCopying", "laserDidCollideWithGerm"]
 - ["PSo9NSCopying", "loadHealth"]
-- ["PSo9NSCopying", "motionManger"]
 - !private ["PSo9NSCopying", "move"]
 - !private ["PSo9NSCopying", "moveBy"]
 - !private ["PSo9NSCopying", "node"]
@@ -1254,15 +1220,13 @@ depends-member:
 - !private ["PSo9NSCopying", "view"]
 - !private ["PSo9NSCopying", "wait"]
 - !private ["PSo9NSCopying", "white"]
-- ["PSo9NSCopying", "xAcceleration"]
 - !private ["PSo9NSCopying", "zPosition"]
 - ["PSo9NSCopying", ""]
 - ["PSo16NSMutableCopying", "init"]
-- ["CSo8NSObject", "CGFloat"]
+- !private ["CSo8NSObject", "CGFloat"]
 - !private ["CSo8NSObject", "CGPoint"]
 - !private ["CSo8NSObject", "CGSize"]
 - !private ["CSo8NSObject", "CGVector"]
-- ["CSo8NSObject", "CMMotionManager"]
 - !private ["CSo8NSObject", "GKRandomDistribution"]
 - !private ["CSo8NSObject", "GKRandomSource"]
 - !private ["CSo8NSObject", "GameOverScene"]
@@ -1323,7 +1287,6 @@ depends-member:
 - ["CSo8NSObject", "laserDidCollideWithGerm"]
 - ["CSo8NSObject", "loadHealth"]
 - !private ["CSo8NSObject", "location"]
-- ["CSo8NSObject", "motionManger"]
 - !private ["CSo8NSObject", "move"]
 - !private ["CSo8NSObject", "moveBy"]
 - !private ["CSo8NSObject", "nextInt"]
@@ -1354,13 +1317,11 @@ depends-member:
 - !private ["CSo8NSObject", "view"]
 - !private ["CSo8NSObject", "wait"]
 - !private ["CSo8NSObject", "white"]
-- ["CSo8NSObject", "xAcceleration"]
 - !private ["CSo8NSObject", "zPosition"]
 - !private ["PSo16NSObjectProtocol", "CGFloat"]
 - !private ["PSo16NSObjectProtocol", "CGPoint"]
 - !private ["PSo16NSObjectProtocol", "CGSize"]
 - !private ["PSo16NSObjectProtocol", "CGVector"]
-- ["PSo16NSObjectProtocol", "CMMotionManager"]
 - !private ["PSo16NSObjectProtocol", "GKRandomDistribution"]
 - !private ["PSo16NSObjectProtocol", "GKRandomSource"]
 - !private ["PSo16NSObjectProtocol", "Int"]
@@ -1412,7 +1373,6 @@ depends-member:
 - ["PSo16NSObjectProtocol", "laserDidCollideWithGerm"]
 - ["PSo16NSObjectProtocol", "loadHealth"]
 - !private ["PSo16NSObjectProtocol", "location"]
-- ["PSo16NSObjectProtocol", "motionManger"]
 - !private ["PSo16NSObjectProtocol", "move"]
 - !private ["PSo16NSObjectProtocol", "moveBy"]
 - !private ["PSo16NSObjectProtocol", "nextInt"]
@@ -1443,7 +1403,6 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "view"]
 - !private ["PSo16NSObjectProtocol", "wait"]
 - !private ["PSo16NSObjectProtocol", "white"]
-- ["PSo16NSObjectProtocol", "xAcceleration"]
 - !private ["PSo16NSObjectProtocol", "zPosition"]
 - ["PSo16NSObjectProtocol", ""]
 - !private ["PSo14NSSecureCoding", "arrayByShufflingObjects"]
@@ -1517,11 +1476,10 @@ depends-member:
 - !private ["CSo8SKAction", "run"]
 - !private ["CSo8SKAction", "sequence"]
 - !private ["CSo8SKAction", "wait"]
-- ["CSo12SKEffectNode", "CGFloat"]
+- !private ["CSo12SKEffectNode", "CGFloat"]
 - !private ["CSo12SKEffectNode", "CGPoint"]
 - !private ["CSo12SKEffectNode", "CGSize"]
 - !private ["CSo12SKEffectNode", "CGVector"]
-- ["CSo12SKEffectNode", "CMMotionManager"]
 - !private ["CSo12SKEffectNode", "GKRandomDistribution"]
 - !private ["CSo12SKEffectNode", "GKRandomSource"]
 - !private ["CSo12SKEffectNode", "GameOverScene"]
@@ -1565,7 +1523,6 @@ depends-member:
 - ["CSo12SKEffectNode", "laserCategory"]
 - ["CSo12SKEffectNode", "laserDidCollideWithGerm"]
 - ["CSo12SKEffectNode", "loadHealth"]
-- ["CSo12SKEffectNode", "motionManger"]
 - !private ["CSo12SKEffectNode", "physicsWorld"]
 - ["CSo12SKEffectNode", "player"]
 - ["CSo12SKEffectNode", "possibleGerms"]
@@ -1578,7 +1535,6 @@ depends-member:
 - ["CSo12SKEffectNode", "touchesEnded"]
 - ["CSo12SKEffectNode", "update"]
 - !private ["CSo12SKEffectNode", "view"]
-- ["CSo12SKEffectNode", "xAcceleration"]
 - !private ["CSo13SKEmitterNode", "advanceSimulationTime"]
 - ["CSo13SKEmitterNode", "deinit"]
 - !private ["CSo13SKEmitterNode", "init"]
@@ -1592,11 +1548,10 @@ depends-member:
 - !private ["CSo11SKLabelNode", "init"]
 - !private ["CSo11SKLabelNode", "position"]
 - !private ["CSo11SKLabelNode", "text"]
-- ["CSo6SKNode", "CGFloat"]
+- !private ["CSo6SKNode", "CGFloat"]
 - !private ["CSo6SKNode", "CGPoint"]
 - !private ["CSo6SKNode", "CGSize"]
 - !private ["CSo6SKNode", "CGVector"]
-- ["CSo6SKNode", "CMMotionManager"]
 - !private ["CSo6SKNode", "GKRandomDistribution"]
 - !private ["CSo6SKNode", "GKRandomSource"]
 - !private ["CSo6SKNode", "GameOverScene"]
@@ -1645,7 +1600,6 @@ depends-member:
 - ["CSo6SKNode", "laserCategory"]
 - ["CSo6SKNode", "laserDidCollideWithGerm"]
 - ["CSo6SKNode", "loadHealth"]
-- ["CSo6SKNode", "motionManger"]
 - !private ["CSo6SKNode", "physicsBody"]
 - !private ["CSo6SKNode", "physicsWorld"]
 - ["CSo6SKNode", "player"]
@@ -1662,7 +1616,6 @@ depends-member:
 - ["CSo6SKNode", "touchesEnded"]
 - ["CSo6SKNode", "update"]
 - !private ["CSo6SKNode", "view"]
-- ["CSo6SKNode", "xAcceleration"]
 - !private ["CSo6SKNode", "zPosition"]
 - !private ["CSo13SKPhysicsBody", "categoryBitMask"]
 - !private ["CSo13SKPhysicsBody", "collisionBitMask"]
@@ -1679,7 +1632,6 @@ depends-member:
 - !private ["PSo24SKPhysicsContactDelegate", "CGPoint"]
 - !private ["PSo24SKPhysicsContactDelegate", "CGSize"]
 - !private ["PSo24SKPhysicsContactDelegate", "CGVector"]
-- ["PSo24SKPhysicsContactDelegate", "CMMotionManager"]
 - !private ["PSo24SKPhysicsContactDelegate", "GKRandomDistribution"]
 - !private ["PSo24SKPhysicsContactDelegate", "GKRandomSource"]
 - !private ["PSo24SKPhysicsContactDelegate", "Int"]
@@ -1720,16 +1672,14 @@ depends-member:
 - !private ["PSo24SKPhysicsContactDelegate", "scoreLabel"]
 - !private ["PSo24SKPhysicsContactDelegate", "size"]
 - !private ["PSo24SKPhysicsContactDelegate", "view"]
-- !private ["PSo24SKPhysicsContactDelegate", "xAcceleration"]
 - ["PSo24SKPhysicsContactDelegate", ""]
 - !private ["CSo14SKPhysicsWorld", "contactDelegate"]
 - ["CSo14SKPhysicsWorld", "deinit"]
 - !private ["CSo14SKPhysicsWorld", "gravity"]
-- ["CSo7SKScene", "CGFloat"]
+- !private ["CSo7SKScene", "CGFloat"]
 - !private ["CSo7SKScene", "CGPoint"]
 - !private ["CSo7SKScene", "CGSize"]
 - !private ["CSo7SKScene", "CGVector"]
-- ["CSo7SKScene", "CMMotionManager"]
 - !private ["CSo7SKScene", "GKRandomDistribution"]
 - !private ["CSo7SKScene", "GKRandomSource"]
 - !private ["CSo7SKScene", "GameOverScene"]
@@ -1774,7 +1724,6 @@ depends-member:
 - ["CSo7SKScene", "laserCategory"]
 - ["CSo7SKScene", "laserDidCollideWithGerm"]
 - ["CSo7SKScene", "loadHealth"]
-- ["CSo7SKScene", "motionManger"]
 - !private ["CSo7SKScene", "physicsWorld"]
 - ["CSo7SKScene", "player"]
 - ["CSo7SKScene", "possibleGerms"]
@@ -1787,7 +1736,6 @@ depends-member:
 - ["CSo7SKScene", "touchesEnded"]
 - ["CSo7SKScene", "update"]
 - !private ["CSo7SKScene", "view"]
-- ["CSo7SKScene", "xAcceleration"]
 - ["CSo7SKScene", ""]
 - !private ["CSo12SKSpriteNode", "contains"]
 - ["CSo12SKSpriteNode", "deinit"]
@@ -1805,7 +1753,6 @@ depends-member:
 - !private ["PSo10SKWarpable", "CGPoint"]
 - !private ["PSo10SKWarpable", "CGSize"]
 - !private ["PSo10SKWarpable", "CGVector"]
-- ["PSo10SKWarpable", "CMMotionManager"]
 - !private ["PSo10SKWarpable", "GKRandomDistribution"]
 - !private ["PSo10SKWarpable", "GKRandomSource"]
 - !private ["PSo10SKWarpable", "Int"]
@@ -1841,7 +1788,6 @@ depends-member:
 - ["PSo10SKWarpable", "laserCategory"]
 - ["PSo10SKWarpable", "laserDidCollideWithGerm"]
 - ["PSo10SKWarpable", "loadHealth"]
-- ["PSo10SKWarpable", "motionManger"]
 - !private ["PSo10SKWarpable", "physicsBody"]
 - !private ["PSo10SKWarpable", "physicsWorld"]
 - ["PSo10SKWarpable", "player"]
@@ -1857,7 +1803,6 @@ depends-member:
 - ["PSo10SKWarpable", "touchesEnded"]
 - ["PSo10SKWarpable", "update"]
 - !private ["PSo10SKWarpable", "view"]
-- ["PSo10SKWarpable", "xAcceleration"]
 - ["PSo10SKWarpable", ""]
 - ["V10ObjectiveC8Selector", "deinit"]
 - ["Ps8Sequence", "Element"]
@@ -1915,7 +1860,6 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "CGPoint"]
 - !private ["PSo18UIFocusEnvironment", "CGSize"]
 - !private ["PSo18UIFocusEnvironment", "CGVector"]
-- ["PSo18UIFocusEnvironment", "CMMotionManager"]
 - !private ["PSo18UIFocusEnvironment", "GKRandomDistribution"]
 - !private ["PSo18UIFocusEnvironment", "GKRandomSource"]
 - !private ["PSo18UIFocusEnvironment", "Int"]
@@ -1955,7 +1899,6 @@ depends-member:
 - ["PSo18UIFocusEnvironment", "laserCategory"]
 - ["PSo18UIFocusEnvironment", "laserDidCollideWithGerm"]
 - ["PSo18UIFocusEnvironment", "loadHealth"]
-- ["PSo18UIFocusEnvironment", "motionManger"]
 - !private ["PSo18UIFocusEnvironment", "physicsBody"]
 - !private ["PSo18UIFocusEnvironment", "physicsWorld"]
 - ["PSo18UIFocusEnvironment", "player"]
@@ -1973,14 +1916,12 @@ depends-member:
 - ["PSo18UIFocusEnvironment", "touchesEnded"]
 - ["PSo18UIFocusEnvironment", "update"]
 - !private ["PSo18UIFocusEnvironment", "view"]
-- ["PSo18UIFocusEnvironment", "xAcceleration"]
 - !private ["PSo18UIFocusEnvironment", "zPosition"]
 - ["PSo18UIFocusEnvironment", ""]
 - !private ["PSo11UIFocusItem", "CGFloat"]
 - !private ["PSo11UIFocusItem", "CGPoint"]
 - !private ["PSo11UIFocusItem", "CGSize"]
 - !private ["PSo11UIFocusItem", "CGVector"]
-- ["PSo11UIFocusItem", "CMMotionManager"]
 - !private ["PSo11UIFocusItem", "GKRandomDistribution"]
 - !private ["PSo11UIFocusItem", "GKRandomSource"]
 - !private ["PSo11UIFocusItem", "Int"]
@@ -2020,7 +1961,6 @@ depends-member:
 - ["PSo11UIFocusItem", "laserCategory"]
 - ["PSo11UIFocusItem", "laserDidCollideWithGerm"]
 - ["PSo11UIFocusItem", "loadHealth"]
-- ["PSo11UIFocusItem", "motionManger"]
 - !private ["PSo11UIFocusItem", "physicsBody"]
 - !private ["PSo11UIFocusItem", "physicsWorld"]
 - ["PSo11UIFocusItem", "player"]
@@ -2038,14 +1978,12 @@ depends-member:
 - ["PSo11UIFocusItem", "touchesEnded"]
 - ["PSo11UIFocusItem", "update"]
 - !private ["PSo11UIFocusItem", "view"]
-- ["PSo11UIFocusItem", "xAcceleration"]
 - !private ["PSo11UIFocusItem", "zPosition"]
 - ["PSo11UIFocusItem", ""]
-- ["CSo11UIResponder", "CGFloat"]
+- !private ["CSo11UIResponder", "CGFloat"]
 - !private ["CSo11UIResponder", "CGPoint"]
 - !private ["CSo11UIResponder", "CGSize"]
 - !private ["CSo11UIResponder", "CGVector"]
-- ["CSo11UIResponder", "CMMotionManager"]
 - !private ["CSo11UIResponder", "GKRandomDistribution"]
 - !private ["CSo11UIResponder", "GKRandomSource"]
 - !private ["CSo11UIResponder", "GameOverScene"]
@@ -2094,7 +2032,6 @@ depends-member:
 - ["CSo11UIResponder", "laserCategory"]
 - ["CSo11UIResponder", "laserDidCollideWithGerm"]
 - ["CSo11UIResponder", "loadHealth"]
-- ["CSo11UIResponder", "motionManger"]
 - !private ["CSo11UIResponder", "physicsBody"]
 - !private ["CSo11UIResponder", "physicsWorld"]
 - ["CSo11UIResponder", "player"]
@@ -2112,13 +2049,11 @@ depends-member:
 - ["CSo11UIResponder", "touchesEnded"]
 - ["CSo11UIResponder", "update"]
 - !private ["CSo11UIResponder", "view"]
-- ["CSo11UIResponder", "xAcceleration"]
 - !private ["CSo11UIResponder", "zPosition"]
 - !private ["PSo30UIResponderStandardEditActions", "CGFloat"]
 - !private ["PSo30UIResponderStandardEditActions", "CGPoint"]
 - !private ["PSo30UIResponderStandardEditActions", "CGSize"]
 - !private ["PSo30UIResponderStandardEditActions", "CGVector"]
-- ["PSo30UIResponderStandardEditActions", "CMMotionManager"]
 - !private ["PSo30UIResponderStandardEditActions", "GKRandomDistribution"]
 - !private ["PSo30UIResponderStandardEditActions", "GKRandomSource"]
 - !private ["PSo30UIResponderStandardEditActions", "Int"]
@@ -2158,7 +2093,6 @@ depends-member:
 - ["PSo30UIResponderStandardEditActions", "laserCategory"]
 - ["PSo30UIResponderStandardEditActions", "laserDidCollideWithGerm"]
 - ["PSo30UIResponderStandardEditActions", "loadHealth"]
-- ["PSo30UIResponderStandardEditActions", "motionManger"]
 - !private ["PSo30UIResponderStandardEditActions", "physicsBody"]
 - !private ["PSo30UIResponderStandardEditActions", "physicsWorld"]
 - ["PSo30UIResponderStandardEditActions", "player"]
@@ -2176,7 +2110,6 @@ depends-member:
 - ["PSo30UIResponderStandardEditActions", "touchesEnded"]
 - ["PSo30UIResponderStandardEditActions", "update"]
 - !private ["PSo30UIResponderStandardEditActions", "view"]
-- ["PSo30UIResponderStandardEditActions", "xAcceleration"]
 - !private ["PSo30UIResponderStandardEditActions", "zPosition"]
 - ["PSo30UIResponderStandardEditActions", ""]
 - ["CSo7UITouch", "deinit"]
@@ -2240,7 +2173,6 @@ depends-member:
 - !private ["Ps9_Hashable", "CGPoint"]
 - !private ["Ps9_Hashable", "CGSize"]
 - !private ["Ps9_Hashable", "CGVector"]
-- ["Ps9_Hashable", "CMMotionManager"]
 - !private ["Ps9_Hashable", "GKRandomDistribution"]
 - !private ["Ps9_Hashable", "GKRandomSource"]
 - !private ["Ps9_Hashable", "Int"]
@@ -2299,7 +2231,6 @@ depends-member:
 - ["Ps9_Hashable", "laserDidCollideWithGerm"]
 - ["Ps9_Hashable", "loadHealth"]
 - !private ["Ps9_Hashable", "location"]
-- ["Ps9_Hashable", "motionManger"]
 - !private ["Ps9_Hashable", "move"]
 - !private ["Ps9_Hashable", "moveBy"]
 - !private ["Ps9_Hashable", "nextInt"]
@@ -2330,7 +2261,6 @@ depends-member:
 - !private ["Ps9_Hashable", "view"]
 - !private ["Ps9_Hashable", "wait"]
 - !private ["Ps9_Hashable", "white"]
-- ["Ps9_Hashable", "xAcceleration"]
 - !private ["Ps9_Hashable", "zPosition"]
 - ["Ps9_Hashable", ""]
 - !private ["Ps14_Incrementable", "IntegerLiteralType"]
@@ -2397,7 +2327,6 @@ depends-nominal:
 - "VSC6CGRect"
 - "VSC6CGSize"
 - "VSC8CGVector"
-- "CSo15CMMotionManager"
 - "Ps7CVarArg"
 - !private "Vs9Character"
 - !private "Vs11ClosedRange"
@@ -2544,4 +2473,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/simd.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/GLKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/GameplayKit.swiftmodule"
-interface-hash: "62320a12c8e2e56c8881c7f1f0b1414b"
+interface-hash: "ff3662c6a42e23900eeca9ffd59649b0"

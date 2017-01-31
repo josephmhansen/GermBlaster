@@ -6,28 +6,28 @@ provides-nominal:
 provides-member:
 - ["C11GermBlaster13GameOverScene", ""]
 provides-dynamic-lookup:
-- "score"
 - "newGameButtonNode"
-- "didMove"
-- "touchesBegan"
 - "scoreLabel"
+- "touchesBegan"
+- "score"
+- "didMove"
 depends-top-level:
-- "GameOverScene"
-- !private "MenuScene"
-- "CastingPrecedence"
-- !private "SKTexture"
-- "SKScene"
 - "AssignmentPrecedence"
 - !private "=="
-- "Int"
-- "UITouch"
-- "UIEvent"
+- "CastingPrecedence"
+- "SKScene"
 - "SKLabelNode"
-- !private "StringLiteralType"
-- !private "SKTransition"
-- "SKSpriteNode"
 - "Set"
+- "UITouch"
+- !private "SKTransition"
+- !private "MenuScene"
+- "UIEvent"
 - "SKView"
+- "SKSpriteNode"
+- "Int"
+- !private "StringLiteralType"
+- "GameOverScene"
+- !private "SKTexture"
 depends-member:
 - !private ["Ps9AnyObject", "SKScene"]
 - !private ["Ps9AnyObject", "SKTexture"]

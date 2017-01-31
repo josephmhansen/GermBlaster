@@ -159,7 +159,6 @@ SWIFT_CLASS("_TtC11GermBlaster13GameOverScene")
 
 @class SKEmitterNode;
 @class NSTimer;
-@class CMMotionManager;
 @class SKPhysicsContact;
 
 SWIFT_CLASS("_TtC11GermBlaster9GameScene")
@@ -178,8 +177,6 @@ SWIFT_CLASS("_TtC11GermBlaster9GameScene")
 @property (nonatomic, copy) NSArray<NSString *> * _Nonnull possibleGerms;
 @property (nonatomic, readonly) uint32_t germCategory;
 @property (nonatomic, readonly) uint32_t laserCategory;
-@property (nonatomic, readonly, strong) CMMotionManager * _Nonnull motionManger;
-@property (nonatomic) CGFloat xAcceleration;
 @property (nonatomic, copy) NSArray<SKSpriteNode *> * _Null_unspecified healthArray;
 - (void)didMoveToView:(SKView * _Nonnull)view;
 - (void)loadHealth;
